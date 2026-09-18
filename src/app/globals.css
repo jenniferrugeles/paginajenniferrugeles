@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fffdfb;
+  --foreground: #2e2233;
+
+  /* Morado de marca (extraído del logo Jennifer JR) */
+  --color-brand-50: #f5f1fe;
+  --color-brand-100: #ebe3fd;
+  --color-brand-200: #d2c0fa;
+  --color-brand-300: #b99df7;
+  --color-brand-400: #a078f5;
+  --color-brand-500: #8654f3;
+  --color-brand-600: #6c3ad9;
+  --color-brand-700: #562daa;
+  --color-brand-800: #402080;
+  --color-brand-900: #2a1556;
+
+  /* Lavanda suave para fondos de sección */
+  --color-lavender-50: #faf8fd;
+  --color-lavender-100: #f1ecfa;
+  --color-lavender-200: #e4d9f4;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-brand-50: var(--color-brand-50);
+  --color-brand-100: var(--color-brand-100);
+  --color-brand-200: var(--color-brand-200);
+  --color-brand-300: var(--color-brand-300);
+  --color-brand-400: var(--color-brand-400);
+  --color-brand-500: var(--color-brand-500);
+  --color-brand-600: var(--color-brand-600);
+  --color-brand-700: var(--color-brand-700);
+  --color-brand-800: var(--color-brand-800);
+  --color-brand-900: var(--color-brand-900);
+
+  --color-lavender-50: var(--color-lavender-50);
+  --color-lavender-100: var(--color-lavender-100);
+  --color-lavender-200: var(--color-lavender-200);
+
+  --font-sans: var(--font-manrope);
+  --font-serif: var(--font-playfair);
+  --font-accent: var(--font-caveat);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+}
