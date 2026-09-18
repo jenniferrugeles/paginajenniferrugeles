@@ -33,7 +33,7 @@ export default function Header() {
             priority
           />
           <span className="font-serif text-lg font-semibold text-brand-800">
-            Jennifer Rugelés
+            Jennifer Rugeles
           </span>
         </Link>
 

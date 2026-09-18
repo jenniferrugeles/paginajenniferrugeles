@@ -11,7 +11,7 @@ export default function TratamientoDatosPage() {
     >
       <p>
         En cumplimiento de la Ley 1581 de 2012 y el Decreto 1377 de 2013 de
-        Colombia, Jennifer Rugelés informa que los datos personales
+        Colombia, Jennifer Rugeles informa que los datos personales
         recolectados a través de este sitio (nombre, correo, teléfono/
         WhatsApp y motivo general de contacto) serán tratados como base de
         datos privada, con las siguientes finalidades: gestión de citas,

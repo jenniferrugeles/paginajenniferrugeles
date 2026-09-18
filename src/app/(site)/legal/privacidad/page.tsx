@@ -7,7 +7,7 @@ export default function PrivacidadPage() {
   return (
     <LegalPage title="Política de privacidad" updated="[PLACEHOLDER — fecha]">
       <p>
-        Jennifer Rugelés (&ldquo;nosotros&rdquo;) recopila datos personales a
+        Jennifer Rugeles (&ldquo;nosotros&rdquo;) recopila datos personales a
         través de los formularios de este sitio (agenda, contacto,
         suscripción, colaboraciones, testimonios e inscripciones a
         comunidades o talleres) únicamente para los fines que en cada

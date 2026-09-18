@@ -22,7 +22,7 @@ export default function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3">
         <div>
           <p className="font-serif text-xl font-semibold text-brand-800">
-            Jennifer Rugelés
+            Jennifer Rugeles
           </p>
           <p className="mt-2 text-sm text-foreground/70">
             Psicóloga · Escritora · Conferencista · Mentora en crianza
@@ -75,7 +75,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-brand-100 px-4 py-6 text-center text-xs text-foreground/50 sm:px-6">
-        © {new Date().getFullYear()} Jennifer Rugelés. Todos los derechos reservados.
+        © {new Date().getFullYear()} Jennifer Rugeles. Todos los derechos reservados.
       </div>
     </footer>
   );

@@ -80,7 +80,7 @@ export default async function PostPage({
     headline: post.title,
     description: post.excerpt,
     datePublished: post.publishedAt,
-    author: { "@type": "Person", name: "Jennifer Rugelés" },
+    author: { "@type": "Person", name: "Jennifer Rugeles" },
   };
 
   return (

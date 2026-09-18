@@ -3,7 +3,7 @@ import Button from "@/components/Button";
 
 export const metadata: Metadata = {
   title: "Agendar cita",
-  description: "Reserva tu sesión con Jennifer Rugelés.",
+  description: "Reserva tu sesión con Jennifer Rugeles.",
 };
 
 const calUsername = process.env.NEXT_PUBLIC_CALCOM_USERNAME;

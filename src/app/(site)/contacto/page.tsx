@@ -5,7 +5,7 @@ import Button from "@/components/Button";
 export const metadata: Metadata = {
   title: "Contacto",
   description:
-    "Escríbele a Jennifer Rugelés — contacto general, agenda de citas, colaboraciones o conferencias.",
+    "Escríbele a Jennifer Rugeles — contacto general, agenda de citas, colaboraciones o conferencias.",
 };
 
 export default async function ContactoPage({

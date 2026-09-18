@@ -9,7 +9,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Psicología, crianza, adolescencia, familia y relaciones — artículos de Jennifer Rugelés.",
+    "Psicología, crianza, adolescencia, familia y relaciones — artículos de Jennifer Rugeles.",
 };
 
 export default async function BlogPage() {

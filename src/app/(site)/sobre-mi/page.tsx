@@ -4,7 +4,7 @@ import Button from "@/components/Button";
 export const metadata: Metadata = {
   title: "Sobre mí",
   description:
-    "Conoce a Jennifer Rugelés — psicóloga, escritora, conferencista y mentora en crianza.",
+    "Conoce a Jennifer Rugeles — psicóloga, escritora, conferencista y mentora en crianza.",
 };
 
 export default function SobreMiPage() {

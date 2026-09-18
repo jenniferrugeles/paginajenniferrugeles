@@ -4,7 +4,7 @@ import Button from "@/components/Button";
 export const metadata: Metadata = {
   title: "Psicología y acompañamiento",
   description:
-    "Sesiones individuales, para adolescentes, adultos, padres y madres, y acompañamiento familiar con Jennifer Rugelés.",
+    "Sesiones individuales, para adolescentes, adultos, padres y madres, y acompañamiento familiar con Jennifer Rugeles.",
 };
 
 const SERVICIOS = [

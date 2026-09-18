@@ -1,4 +1,4 @@
-# Jennifer Rugelés — Sitio web
+# Jennifer Rugeles — Sitio web
 
 Next.js (App Router) + Tailwind CSS v4 + Supabase. Ver la arquitectura y
 estrategia completa en el documento de planeación (compartido en la

@@ -7,7 +7,7 @@ export default function TerminosPage() {
   return (
     <LegalPage title="Términos y condiciones" updated="[PLACEHOLDER — fecha]">
       <p>
-        Este sitio es operado por Jennifer Rugelés. Al usarlo aceptas estos
+        Este sitio es operado por Jennifer Rugeles. Al usarlo aceptas estos
         términos, que aplican a la navegación del sitio, la compra de libros
         y del kit RE:CONÉCTATE, y la reserva de sesiones psicológicas.
       </p>
@@ -19,7 +19,7 @@ export default function TerminosPage() {
         publicada en cada página de producto al momento de la compra.
       </p>
       <p>
-        Los pagos se procesan a través de Wompi. Jennifer Rugelés no almacena
+        Los pagos se procesan a través de Wompi. Jennifer Rugeles no almacena
         datos de tarjetas ni de medios de pago — esa información es
         gestionada directamente por la pasarela de pago.
       </p>

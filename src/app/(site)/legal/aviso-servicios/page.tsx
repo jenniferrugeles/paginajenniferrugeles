@@ -10,7 +10,7 @@ export default function AvisoServiciosPage() {
       updated="[PLACEHOLDER — fecha]"
     >
       <p>
-        Jennifer Rugelés es psicóloga{" "}
+        Jennifer Rugeles es psicóloga{" "}
         <span className="font-medium">
           [PLACEHOLDER — número de tarjeta profesional / registro]
         </span>

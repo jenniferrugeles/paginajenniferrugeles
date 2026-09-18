@@ -22,8 +22,8 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   title: {
-    default: "Jennifer Rugelés — Psicóloga, Escritora y Conferencista",
-    template: "%s · Jennifer Rugelés",
+    default: "Jennifer Rugeles — Psicóloga, Escritora y Conferencista",
+    template: "%s · Jennifer Rugeles",
   },
   description:
     "Psicología, familia y herramientas para comprender lo que sentimos, reconstruir vínculos y aprender a relacionarnos de una manera diferente.",
