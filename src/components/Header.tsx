@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
   { href: "/psicologia", label: "Psicología" },
+  { href: "/blog", label: "Blog" },
   { href: "/sobre-mi", label: "Sobre mí" },
   { href: "/contacto", label: "Contacto" },
 ];
