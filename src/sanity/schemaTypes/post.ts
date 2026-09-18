@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { CATEGORIAS } from "../categories";
 
 export default defineType({
   name: "post",
@@ -21,9 +22,14 @@ export default defineType({
     defineField({
       name: "categories",
       title: "Categorías",
+      description: "Marca una o varias.",
       type: "array",
-      of: [{ type: "reference", to: [{ type: "category" }] }],
-      validation: (rule) => rule.min(1),
+      of: [{ type: "string" }],
+      options: {
+        list: CATEGORIAS.map((c) => ({ title: c.title, value: c.title })),
+        layout: "grid",
+      },
+      validation: (rule) => rule.required().min(1).unique(),
     }),
     defineField({
       name: "coverImage",

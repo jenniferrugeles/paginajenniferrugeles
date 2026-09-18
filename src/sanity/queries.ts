@@ -1,15 +1,24 @@
 import type { Image, PortableTextBlock } from "sanity";
 import { sanityClient } from "./client";
+import {
+  ALL_CATEGORIES,
+  categoryFromTitle,
+  type Category,
+} from "./categories";
 
-export type Category = { _id: string; title: string; slug: string };
+export type { Category };
 
-export type PostSummary = {
+type RawPost = {
   _id: string;
   title: string;
   slug: string;
   excerpt: string;
   coverImage: Image & { alt: string };
   publishedAt: string;
+  categories?: string[];
+};
+
+export type PostSummary = Omit<RawPost, "categories"> & {
   categories: Category[];
 };
 
@@ -23,38 +32,41 @@ export type Post = PostSummary & {
   seoDescription?: string;
 };
 
-const postSummaryProjection = `{
-  _id,
-  title,
-  "slug": slug.current,
-  excerpt,
-  coverImage,
-  publishedAt,
-  "categories": categories[]->{_id, title, "slug": slug.current}
+function withCategories<T extends { categories?: string[] }>(
+  raw: T,
+): Omit<T, "categories"> & { categories: Category[] } {
+  const categories = (raw.categories ?? [])
+    .map(categoryFromTitle)
+    .filter((c): c is Category => Boolean(c));
+  return { ...raw, categories };
+}
+
+const summaryProjection = `{
+  _id, title, "slug": slug.current, excerpt, coverImage, publishedAt, categories
 }`;
 
 export async function getAllCategories(): Promise<Category[]> {
-  if (!sanityClient) return [];
-  return sanityClient.fetch(
-    `*[_type == "category"] | order(title asc) {_id, title, "slug": slug.current}`,
-  );
+  return ALL_CATEGORIES;
 }
 
 export async function getAllPosts(): Promise<PostSummary[]> {
   if (!sanityClient) return [];
-  return sanityClient.fetch(
-    `*[_type == "post" && defined(slug.current)] | order(publishedAt desc) ${postSummaryProjection}`,
+  const raw: RawPost[] = await sanityClient.fetch(
+    `*[_type == "post" && defined(slug.current)] | order(publishedAt desc) ${summaryProjection}`,
   );
+  return raw.map(withCategories);
 }
 
 export async function getPostsByCategory(
   categorySlug: string,
 ): Promise<PostSummary[]> {
-  if (!sanityClient) return [];
-  return sanityClient.fetch(
-    `*[_type == "post" && defined(slug.current) && $categorySlug in categories[]->slug.current] | order(publishedAt desc) ${postSummaryProjection}`,
-    { categorySlug },
+  const category = ALL_CATEGORIES.find((c) => c.slug === categorySlug);
+  if (!sanityClient || !category) return [];
+  const raw: RawPost[] = await sanityClient.fetch(
+    `*[_type == "post" && defined(slug.current) && $title in categories] | order(publishedAt desc) ${summaryProjection}`,
+    { title: category.title },
   );
+  return raw.map(withCategories);
 }
 
 export async function getPostSlugs(): Promise<string[]> {
@@ -66,24 +78,26 @@ export async function getPostSlugs(): Promise<string[]> {
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {
   if (!sanityClient) return null;
-  return sanityClient.fetch(
+  const raw: (RawPost & Omit<Post, keyof PostSummary>) | null =
+    await sanityClient.fetch(
     `*[_type == "post" && slug.current == $slug][0]{
       _id, title, "slug": slug.current, excerpt, coverImage, publishedAt,
       body, practicalTool, closingReflection, ctaLabel, ctaHref,
-      seoTitle, seoDescription,
-      "categories": categories[]->{_id, title, "slug": slug.current}
+      seoTitle, seoDescription, categories
     }`,
     { slug },
   );
+  return raw ? withCategories(raw) : null;
 }
 
 export async function getRelatedPosts(
   postId: string,
-  categorySlugs: string[],
+  categories: Category[],
 ): Promise<PostSummary[]> {
-  if (!sanityClient || categorySlugs.length === 0) return [];
-  return sanityClient.fetch(
-    `*[_type == "post" && _id != $postId && count((categories[]->slug.current)[@ in $categorySlugs]) > 0] | order(publishedAt desc) [0...3] ${postSummaryProjection}`,
-    { postId, categorySlugs },
+  if (!sanityClient || categories.length === 0) return [];
+  const raw: RawPost[] = await sanityClient.fetch(
+    `*[_type == "post" && _id != $postId && count(categories[@ in $titles]) > 0] | order(publishedAt desc) [0...3] ${summaryProjection}`,
+    { postId, titles: categories.map((c) => c.title) },
   );
+  return raw.map(withCategories);
 }

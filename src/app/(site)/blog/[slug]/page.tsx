@@ -64,10 +64,7 @@ export default async function PostPage({
   const post = await getPostBySlug(slug);
   if (!post) notFound();
 
-  const related = await getRelatedPosts(
-    post._id,
-    post.categories.map((c) => c.slug),
-  );
+  const related = await getRelatedPosts(post._id, post.categories);
 
   const cover = urlForImage(post.coverImage)?.width(1200).height(675).url();
   const date = new Date(post.publishedAt).toLocaleDateString("es-CO", {
